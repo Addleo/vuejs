@@ -1,4 +1,5 @@
-Vue.component('ajoutcontact',{  
+export default{
+    name: 'ajoutcontact',
     props: ['entreprises'],
     emits: ['nouveaucontact'],
     data(){
@@ -20,10 +21,4 @@ Vue.component('ajoutcontact',{
     <input type="text" v-model="contact"><br><br>
     <a href="#" @click="ajoutercontact" v-if=" contact != '' ">Ajouter</a>
     `
-})
-
-export default{
-    components: {
-        ajoutcontact
-    }
 }
