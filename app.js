@@ -1,17 +1,18 @@
-import {Vue} from "vue";
+import { createApp } from 'vue';
 
 import entreprise from "./entreprise.js";
 
-import ajout from "./ajout.js";
+//import ajout from "./ajout.js";
 
-import ajoutcontact from "./ajoutcontact.js";
+//import ajoutcontact from "./ajoutcontact.js";
 
 export default{
     name: 'app',
-    components: {ajoutcontact,ajout,entreprise},
+    components: {entreprise}
+    //components: {ajoutcontact,ajout,entreprise},
 };
 
-Vue.createApp({
+const app = createApp({
     data(){
         return{
             entreprises: [
@@ -34,4 +35,12 @@ Vue.createApp({
     compilerOptions: {
         isCustomElement: tag => tag === 'ajout' || tag === 'ajoutcontact' || tag === 'entreprise'
     }
-}).mount('#App');
+})
+
+app.component('entreprise', entreprise)
+
+//app.component('ajout', ajout)
+
+//app.component('ajoutcontact', ajoutcontact)
+
+app.mount('#App');
